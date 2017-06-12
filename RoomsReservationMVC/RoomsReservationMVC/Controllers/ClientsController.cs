@@ -85,6 +85,14 @@ namespace RoomsReservationMVC.Controllers
 
         public ActionResult Delete(int id)
         {
+            RentAPI rentAPI = new RentAPI();
+            var rents = rentAPI.GetRents();
+            foreach(var rent in rents)
+            {
+                if (rent.Client.Id == id)
+                    rentAPI.DeleteRent(rent.Id);
+            }
+
             ClientAPI clientAPI = new ClientAPI();
             clientAPI.DeleteClient(id);
 
