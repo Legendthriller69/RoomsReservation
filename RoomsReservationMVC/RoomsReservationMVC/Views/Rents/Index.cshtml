@@ -13,7 +13,7 @@
         @Html.ActionLink("Ajouter une réservation", "Add", null, new { @class = "btn btn-primary buttons-right" })
     </div>
 </div>
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>Id réservation</th>
         <th>Nom du client</th>
@@ -44,8 +44,12 @@
                     string endDate = item.EndDate.Value.ToString("dd MMM yyyy");
                     @Html.DisplayFor(modelItem => endDate)
                 }
-            </td>
-            @if (item.EndDate != null)
+            </td>            
+            @if(item.BeginDate > DateTime.Now)
+            {
+                <td>A venir</td>
+            }
+            else if (item.EndDate != null)
             {
                 if(item.EndDate < DateTime.Now)
                 {
