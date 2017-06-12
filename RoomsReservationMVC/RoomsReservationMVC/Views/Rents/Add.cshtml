@@ -1,0 +1,46 @@
+﻿@model RoomsReservationMVC.ViewModel.RentVM
+
+@{
+    ViewBag.Title = "Ajouter une réservation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ajouter une réservation</h2>
+<br />
+@using (Html.BeginForm("Add", "Rents", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="IdClient" class="control-label col-md-2">Client</label>
+            <select name="IdClient" id="IdClient" class="form-control col-md-10">
+                @foreach(var client in Model.Clients)
+                {
+                    <option value="@client.Id">@client.Firstname @client.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="BeginDate" class="control-label col-md-2">Date de début</label>
+            <input type="date" id="BeginDate" name="BeginDate" class="form-control col-md-10" />
+        </div>
+        <div class="form-group">
+            <label for="EndDate" class="control-label col-md-2">Date de fin</label>
+            <input type="date" id="EndDate" name="EndDate" class="form-control col-md-10" />
+        </div>
+        <div class="form-group">
+            <label for="IdRoomType" class="control-label col-md-2">Type de chambre</label>
+            <select name="IdRoomType" id="IdRoomType" class="form-control col-md-10">
+                @foreach (var type in Model.RoomTypes)
+                {
+                    <option value="@type.Id">@type.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Ajouter" class="btn btn-primary" />
+        @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-default" })
+    </div>
+}
+

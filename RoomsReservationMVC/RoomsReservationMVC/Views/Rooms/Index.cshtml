@@ -1,0 +1,31 @@
+﻿@model RoomsReservationMVC.ViewModel.RoomVM
+
+@{
+    ViewBag.Title = "Chambres";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10">
+        <h2>Chambres</h2>
+    </div>
+    <div class="col-md-2">
+        @Html.ActionLink("Ajouter une chambre", "AddRoom", null, new { @class = "btn btn-primary buttons-right" })
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>N° chambre</th>
+        <th>Description</th>
+        <th>Adultes</th>
+        <th>Enfants</th>
+        <th>Lits simples</th>
+        <th>Lits doubles</th>
+        <th>Balcon</th>
+        <th>Vue sur la mer</th>
+        <th>Statut</th>
+        <th>Prix</th>
+        <th></th>
+    </tr>
+
+</table>

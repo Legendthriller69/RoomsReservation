@@ -1,0 +1,32 @@
+﻿@model RoomsReservationMVC.ViewModel.ClientVM
+
+@{
+    ViewBag.Title = "Ajouter un client";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ajouter un client</h2>
+<br />
+@using (Html.BeginForm("Add", "Clients", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="Name" class="control-label col-md-2">Nom</label>
+            <input type="text" id="Lastname" name="Lastname" class="form-control col-md-10" />
+        </div>
+        <div class="form-group">
+            <label for="Firstname" class="control-label col-md-2">Prénom</label>
+            <input type="text" id="Firstname" name="Firstname" class="form-control col-md-10" />
+        </div>
+        <div class="form-group">
+            <label for="Email" class="control-label col-md-2">Adresse e-mail</label>
+            <input type="text" id="Email" name="Email" class="form-control col-md-10" />
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Ajouter" class="btn btn-primary" />
+        @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-default" })
+    </div>
+}
+

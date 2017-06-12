@@ -1,0 +1,71 @@
+﻿@model RoomsReservationMVC.ViewModel.RentVM
+
+@{
+    ViewBag.Title = "Liste des réservations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10">
+        <h2>Liste des réservations</h2>
+    </div>
+    <div class="col-md-2">
+        @Html.ActionLink("Ajouter une réservation", "Add", null, new { @class = "btn btn-primary buttons-right" })
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>Id réservation</th>
+        <th>Nom du client</th>
+        <th>N° de chambre</th>
+        <th>Date d'entrée</th>
+        <th>Date de sortie</th>
+        <th>Statut</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Rents)
+    {
+        string beginDate = item.BeginDate.ToString("dd MMM yyyy");
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Id)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Firstname) @Html.DisplayFor(modelItem => item.Client.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.Number)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => beginDate)
+            </td>
+            <td>         
+                @if (item.EndDate != null)
+                {
+                    string endDate = item.EndDate.Value.ToString("dd MMM yyyy");
+                    @Html.DisplayFor(modelItem => endDate)
+                }
+            </td>
+            @if (item.EndDate != null)
+            {
+                if(item.EndDate < DateTime.Now)
+                {
+                    <td>Terminé</td>
+                }
+                else
+                {
+                    <td>En cours</td>
+                }
+            }
+            else
+            {
+                <td>En cours</td>
+            }
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Afficher", "Details", new { id = item.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Supprimer", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+
+</table>

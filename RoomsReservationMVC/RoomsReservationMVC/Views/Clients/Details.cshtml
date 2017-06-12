@@ -1,0 +1,36 @@
+﻿@model RoomsReservationMVC.ViewModel.ClientVM
+
+@{
+    ViewBag.Title = "Details du client";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details du client @Model.Client.Firstname @Model.Client.Name</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Adresse e-mail</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.Email)
+        </dd>
+
+        <dt>Nom</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.Name)
+        </dd>
+
+        <dt>Prénom</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.Firstname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.Client.Id }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-default" })
+</p>

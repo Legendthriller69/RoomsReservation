@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomsReservationMVC", "RoomsReservationMVC\RoomsReservationMVC.csproj", "{C87268B5-DA72-4F7D-9BC5-4DDB2F6346B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{B26A6853-AF6A-4896-82C1-70AF25946341}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{53E055A0-0AA8-42CA-A3E2-C8E22E111B50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C87268B5-DA72-4F7D-9BC5-4DDB2F6346B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C87268B5-DA72-4F7D-9BC5-4DDB2F6346B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C87268B5-DA72-4F7D-9BC5-4DDB2F6346B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B26A6853-AF6A-4896-82C1-70AF25946341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B26A6853-AF6A-4896-82C1-70AF25946341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B26A6853-AF6A-4896-82C1-70AF25946341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B26A6853-AF6A-4896-82C1-70AF25946341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E055A0-0AA8-42CA-A3E2-C8E22E111B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E055A0-0AA8-42CA-A3E2-C8E22E111B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E055A0-0AA8-42CA-A3E2-C8E22E111B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E055A0-0AA8-42CA-A3E2-C8E22E111B50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

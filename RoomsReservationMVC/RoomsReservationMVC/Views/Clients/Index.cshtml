@@ -1,0 +1,44 @@
+﻿@model RoomsReservationMVC.ViewModel.ClientVM
+
+@{
+    ViewBag.Title = "Liste des clients";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10">
+        <h2>Liste des clients</h2>
+    </div>
+    <div class="col-md-2">
+        @Html.ActionLink("Ajouter un client", "Add", null, new { @class = "btn btn-primary buttons-right" })
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>Adresse e-mail</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Clients) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Firstname)
+        </td>
+        <td>
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Afficher", "Details", new { id = item.Id }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Supprimer", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
+        </td>
+    </tr>
+}
+
+</table>

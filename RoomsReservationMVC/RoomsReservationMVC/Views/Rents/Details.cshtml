@@ -1,0 +1,65 @@
+﻿@model RoomsReservationMVC.ViewModel.RentVM
+
+@{
+    ViewBag.Title = "Details de la réservation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details de la réservation #@Model.Rent.Id</h2>
+
+<div>
+    <h4>RentVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Date de début</dt>
+
+        <dd>
+            @Model.Rent.BeginDate.ToString("dd MMM yyyy")
+        </dd>
+
+        <dt>Date de fin</dt>
+
+        @if (Model.Rent.EndDate != null)
+        {
+            <dd>@Model.Rent.EndDate.Value.ToString("dd MMM yyyy")</dd>
+        }
+        else
+        {
+            <dd>Séjour à durée indéterminée</dd>
+        }
+
+        <dt>Nom du client</dt>
+
+        <dd>
+            @Model.Rent.Client.Firstname @Model.Rent.Client.Name
+        </dd>
+
+        <dt>Numéro de chambre</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rent.Room.Number)
+        </dd>
+
+        <dt>Statut</dt>
+
+        @if (Model.Rent.EndDate != null)
+        {
+            string message = "";
+            if (Model.Rent.EndDate < DateTime.Now)
+            {
+                message = "Terminé";
+            }
+            else
+            {
+                message = "En cours";
+            }
+
+            <dd>@message</dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.Rent.Id }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Retour", "Index", null, new { @class = "btn btn-default" })
+</p>
